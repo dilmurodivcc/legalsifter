@@ -4,11 +4,22 @@ import React, { useState, useRef, useEffect } from 'react';
 import { headerData } from './data';
 import styles from './styles.module.scss';
 import { ArrowDownIcon, LanguageIcon } from '@/assets/icons';
+import { useTranslation } from 'react-i18next';
 
 const Header = () => {
+  const { t, i18n } = useTranslation();
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
-  const [currentLanguage, setCurrentLanguage] = useState(headerData.language.current);
+  const [currentLanguage, setCurrentLanguage] = useState(i18n.language || headerData.language.current);
   const languageDropdownRef = useRef(null);
+
+  useEffect(() => {
+    const handleLangChange = (lng) => setCurrentLanguage(lng || headerData.language.current);
+    setCurrentLanguage(i18n.language || headerData.language.current);
+    i18n.on('languageChanged', handleLangChange);
+    return () => {
+      i18n.off('languageChanged', handleLangChange);
+    };
+  }, [i18n]);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -24,6 +35,7 @@ const Header = () => {
   }, []);
 
   const handleLanguageSelect = (lang) => {
+    i18n.changeLanguage(lang);
     setCurrentLanguage(lang);
     setIsLanguageOpen(false);
   };
@@ -31,11 +43,11 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <div className={styles.container}>
-      <div className={styles.logo}>{headerData.logo.text}</div>
+      <div className={styles.logo}>{t('header.logo', { defaultValue: headerData.logo.text })}</div>
       <nav className={styles.nav}>
         {headerData.navItems.map((item, index) => (
           <a key={index} href={item.href} className={styles.navItem}>
-            {item.label}
+            {t(`header.nav.${item.key}`, { defaultValue: item.label })}
             {item.hasDropdown && <ArrowDownIcon />}
           </a>
         ))}
@@ -50,7 +62,7 @@ const Header = () => {
             onClick={() => setIsLanguageOpen(!isLanguageOpen)}
           >
             <LanguageIcon />
-            <span>{currentLanguage}</span>
+            <span>{t(`header.language.${currentLanguage}`, { defaultValue: currentLanguage.toUpperCase() })}</span>
             <ArrowDownIcon />
           </button>
           {isLanguageOpen && (
@@ -61,7 +73,7 @@ const Header = () => {
                   className={`${styles.languageOption} ${currentLanguage === lang ? styles.active : ''}`}
                   onClick={() => handleLanguageSelect(lang)}
                 >
-                  {lang}
+                  {t(`header.language.${lang}`, { defaultValue: lang.toUpperCase() })}
                 </button>
               ))}
             </div>
@@ -69,7 +81,7 @@ const Header = () => {
         </div>
         {headerData.buttons.map((btn, index) => (
           <button key={index} className={styles[btn.variant]}>
-            {btn.label}
+            {t(`header.buttons.${btn.key}`, { defaultValue: btn.label })}
             </button>
           ))}
         </div>
@@ -79,4 +91,3 @@ const Header = () => {
 };
 
 export default Header;
-

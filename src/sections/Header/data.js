@@ -4,19 +4,18 @@ export const headerData = {
     src: "/logo.svg"
   },
   navItems: [
-    { label: "Why LegalSifter", href: "#why" },
-    { label: "Solutions", href: "#solutions" },
-    { label: "Blogs", href: "#blogs" },
-    { label: "Resources", href: "#resources", hasDropdown: true },
-    { label: "Socials", href: "#socials", hasDropdown: true }
+    { key: "why", label: "Why LegalSifter", href: "#why" },
+    { key: "solutions", label: "Solutions", href: "#solutions" },
+    { key: "blogs", label: "Blogs", href: "#blogs" },
+    { key: "resources", label: "Resources", href: "#resources", hasDropdown: true },
+    { key: "socials", label: "Socials", href: "#socials", hasDropdown: true }
   ],
   language: {
-    current: "EN",
-    options: ["EN", "UZ", "RU"]
+    current: "en",
+    options: ["en", "uz"]
   },
   buttons: [
-    { label: "Join Waitlist", variant: "secondary" },
-    { label: "Request Demo", variant: "primary" }
+    { key: "waitlist", label: "Join Waitlist", variant: "secondary" },
+    { key: "demo", label: "Request Demo", variant: "primary" }
   ]
 };
-

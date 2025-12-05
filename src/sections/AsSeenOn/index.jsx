@@ -1,9 +1,13 @@
+"use client";
+
 import React from 'react';
 import styles from './styles.module.scss';
 import { ShortLineLeft, ShortLineRight } from '@/assets/icons';
 import { AsSeenOnData } from './data';
+import { useTranslation } from 'react-i18next';
 
 const AsSeenOn = () => {
+  const { t } = useTranslation();
   return (
     <section className={styles.asSeenOn}>
       <div className={styles.container}>
@@ -11,13 +15,13 @@ const AsSeenOn = () => {
           <div className={styles.badgeContainer}>
             <ShortLineLeft />
             <div className={styles.badge}>
-              {AsSeenOnData.badge}
+              {t('asSeenOn.badge', { defaultValue: AsSeenOnData.badge })}
             </div>
             <ShortLineRight />
           </div>
           <div className={styles.content}>
-            <h2 className={styles.title}>{AsSeenOnData.title}</h2>
-            <p className={styles.description}>{AsSeenOnData.description}</p>
+            <h2 className={styles.title}>{t('asSeenOn.title', { defaultValue: AsSeenOnData.title })}</h2>
+            <p className={styles.description}>{t('asSeenOn.description', { defaultValue: AsSeenOnData.description })}</p>
           </div>
         </div>
 

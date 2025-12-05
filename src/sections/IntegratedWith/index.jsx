@@ -1,9 +1,13 @@
+"use client";
+
 import React, { useMemo } from 'react';
 import { integratedWithData } from './data';
 import styles from './styles.module.scss';
 import { ShortLineLeft, ShortLineRight } from '@/assets/icons';
+import { useTranslation } from 'react-i18next';
 
 const IntegratedWith = () => {
+  const { t } = useTranslation();
   const loopedTechnologies = useMemo(
     () => ({
       part1: [...integratedWithData.technologies.part1, ...integratedWithData.technologies.part1],
@@ -18,10 +22,12 @@ const IntegratedWith = () => {
         <header className={styles.header}>
           <div className={styles.badgeContainer}>
             <ShortLineLeft />
-            <div className={styles.badge}>{integratedWithData.badgeText}</div>
+            <div className={styles.badge}>
+              {t('integrated.badge', { defaultValue: integratedWithData.badgeText })}
+            </div>
             <ShortLineRight />
           </div>
-          <h2 className={styles.title}>{integratedWithData.title}</h2>
+          <h2 className={styles.title}>{t('integrated.title', { defaultValue: integratedWithData.title })}</h2>
         </header>
         </div>
 

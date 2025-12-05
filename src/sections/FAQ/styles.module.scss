@@ -1,13 +1,28 @@
 .faq {
   padding: 90px 0 170px;
-  background: linear-gradient(180deg, #02071a 0%, #010209 100%);
-    max-width: 1500px;
+  background: url("/images/Background.png");
+  background-position: center;
+  background-size: cover;
+  max-width: 1500px;
   margin: 0 auto;
+  position: relative;
+  
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    height: 50%;
+    background: linear-gradient(180deg, #02071a71 0%, #010209 100%);
+    z-index: 1;
+  }
 }
 
 .container {
   max-width: 1000px;
   margin: 0 auto;
+  position: relative;
+  z-index: 2;
 }
 
 .title {

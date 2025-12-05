@@ -1,10 +1,11 @@
-'use client';
+"use client";
 
 import { useState } from 'react';
 import styles from './styles.module.scss';
 import { infrastructureData, infrastructureTabsData, businessesTabsData, developersTabsData } from './data';
+import { useTranslation } from 'react-i18next';
 
-const RenderInfrastructure = ({ data }) => {
+const RenderInfrastructure = ({ data, t }) => {
   if (!Array.isArray(data)) return null;
   return data.map((item, idx) => (
     <div className={styles.card} key={idx}>
@@ -12,16 +13,16 @@ const RenderInfrastructure = ({ data }) => {
         <img src={item.image} alt="" />
       </div>
       <h3 className={styles.title}>
-        {item.title}
+        {t(`infrastructure.tabs.${idx}.title`, { defaultValue: item.title })}
       </h3>
       <p className={styles.subTitle}>
-        {item.subTitle}
+        {t(`infrastructure.tabs.${idx}.subTitle`, { defaultValue: item.subTitle })}
       </p>
     </div>
   ));
 };
 
-const RenderBusinesses = ({ data }) => {
+const RenderBusinesses = ({ data, t }) => {
   if (!Array.isArray(data)) return null;
   return data.map((item, idx) => (
     <div className={styles.card} key={idx}>
@@ -29,16 +30,16 @@ const RenderBusinesses = ({ data }) => {
         <img src={item.image} alt="" />
       </div>
       <h3 className={styles.title}>
-        {item.title}
+        {t(`infrastructure.tabs.${idx}.title`, { defaultValue: item.title })}
       </h3>
       <p className={styles.subTitle}>
-        {item.subTitle}
+        {t(`infrastructure.tabs.${idx}.subTitle`, { defaultValue: item.subTitle })}
       </p>
     </div>
   ));
 };
 
-const RenderDevelopers = ({ data }) => {
+const RenderDevelopers = ({ data, t }) => {
   if (!Array.isArray(data)) return null;
   return data.map((item, idx) => (
     <div className={styles.card} key={idx}>
@@ -46,16 +47,17 @@ const RenderDevelopers = ({ data }) => {
         <img src={item.image} alt="" />
       </div>
       <h3 className={styles.title}>
-        {item.title}
+        {t(`infrastructure.tabs.${idx}.title`, { defaultValue: item.title })}
       </h3>
       <p className={styles.subTitle}>
-        {item.subTitle}
+        {t(`infrastructure.tabs.${idx}.subTitle`, { defaultValue: item.subTitle })}
       </p>
     </div>
   ));
 };
 
 const Infrastructure = () => {
+  const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState('infrastructure');
 
   const handleTabClick = (tab) => {
@@ -71,8 +73,8 @@ const Infrastructure = () => {
       <div className={styles.container}>
         <div className={styles.header}>
           <div className={styles.content}>
-            <h2 className={styles.title}>{infrastructureData.title}</h2>
-            <p className={styles.description}>{infrastructureData.description}</p>
+            <h2 className={styles.title}>{t('infrastructure.title', { defaultValue: infrastructureData.title })}</h2>
+            <p className={styles.description}>{t('infrastructure.description', { defaultValue: infrastructureData.description })}</p>
           </div>
         </div>
         <div className={styles.tabs}>
@@ -80,25 +82,25 @@ const Infrastructure = () => {
             className={`${styles.tab} ${isActiveTab('infrastructure') ? styles.active : ''}`}
             onClick={() => handleTabClick('infrastructure')}
           >
-            For Individuals
+            {t('infrastructure.labels.individuals', { defaultValue: 'For Individuals' })}
           </div>
           <div
             className={`${styles.tab} ${isActiveTab('businesses') ? styles.active : ''}`}
             onClick={() => handleTabClick('businesses')}
           >
-            For Businesses
+            {t('infrastructure.labels.businesses', { defaultValue: 'For Businesses' })}
           </div>
           <div
             className={`${styles.tab} ${isActiveTab('developers') ? styles.active : ''}`}
             onClick={() => handleTabClick('developers')}
           >
-            For Developers
+            {t('infrastructure.labels.developers', { defaultValue: 'For Developers' })}
           </div>
         </div>
         <div className={styles.cardContainer}>
-          {activeTab === 'infrastructure' && <RenderInfrastructure data={infrastructureTabsData} />}
-          {activeTab === 'businesses' && <RenderBusinesses data={businessesTabsData} />}
-          {activeTab === 'developers' && <RenderDevelopers data={developersTabsData} />}
+          {activeTab === 'infrastructure' && <RenderInfrastructure data={infrastructureTabsData} t={t} />}
+          {activeTab === 'businesses' && <RenderBusinesses data={businessesTabsData} t={t} />}
+          {activeTab === 'developers' && <RenderDevelopers data={developersTabsData} t={t} />}
         </div>
       </div>
     </section>
