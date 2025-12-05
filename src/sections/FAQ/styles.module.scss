@@ -1,8 +1,9 @@
 .faq {
-  padding: 90px 0 170px;
+  padding: 90px 0 100px;
   background: url("/images/Background.png");
   background-position: center;
   background-size: cover;
+  // background-attachment: fixed;
   max-width: 1750px;
   margin: 0 auto;
   position: relative;
@@ -52,6 +53,7 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  min-height: 1300px;
 }
 
 .questionItem {
@@ -101,11 +103,13 @@
 }
 
 .answer {
-  max-height: 0;
+  display: grid;
+  grid-template-rows: 0fr;
   overflow: hidden;
   padding: 0 1.5rem;
-  transition: max-height 0.3s ease, padding 0.3s ease, opacity 0.3s ease;
+  transition: grid-template-rows 0.3s ease, padding 0.3s ease, opacity 0.3s ease;
   opacity: 0;
+  will-change: grid-template-rows, padding, opacity;
   font-family: var(--font-family);
   font-weight: 400;
   font-size: 18px;
@@ -114,8 +118,32 @@
   color: rgba(255, 255, 255, 0.7);
 
   &.expanded {
-    max-height: 500px;
+    grid-template-rows: 1fr;
     padding: 0 1.5rem 1.5rem;
     opacity: 1;
+  }
+}
+
+
+.answerContent {
+  overflow: hidden;
+  transform: scaleY(0);
+  transform-origin: top;
+  opacity: 0;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  display: block;
+
+  .answer:not(.expanded) & {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .expanded & {
+    transform: scaleY(1);
+    opacity: 1;
+    display: block;
+    -webkit-line-clamp: unset;
   }
 }

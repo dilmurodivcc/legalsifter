@@ -10,10 +10,7 @@ const Perspectives = () => {
   return (
     <section className={styles.perspectives}>
       <img src={grafic?.src || grafic} alt="" className={styles.grafic} />
-      {/* <img src="/images/neyrolines.svg" alt="" className={styles.neyrolines}/> */}
-      <div className={styles.pipes} />
-      <div className={styles.leftNode} />
-      <div className={styles.rightNode} />
+      <img src="/images/neyrolines.svg" alt="" className={styles.neyrolines}/>
       <div className={styles.container}>
         <h2 className={styles.title}>{t('perspectives.title', { defaultValue: perspectivesData.title })}</h2>
         <div className={styles.quotes}>

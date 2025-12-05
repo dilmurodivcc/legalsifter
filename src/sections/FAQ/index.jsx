@@ -41,7 +41,9 @@ const FAQ = () => {
                 </div>
               </div>
               <div className={`${styles.answer} ${openId === item.id ? styles.expanded : ''}`}>
-                {t(`faq.questions.${item.id}.answer`, { defaultValue: item.answer })}
+                <div className={styles.answerContent}>
+                  {t(`faq.questions.${item.id}.answer`, { defaultValue: item.answer })}
+                </div>
               </div>
             </div>
           ))}

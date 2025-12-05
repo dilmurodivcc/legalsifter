@@ -12,12 +12,15 @@
   justify-content: space-between;
   gap: 4rem;
   align-items: center;
+  padding-bottom: 70px;
 }
 
 .content {
   display: flex;
   flex-direction: column;
   width: 63%;
+  position: relative;
+  z-index: 4;
 }
 
 .title {
