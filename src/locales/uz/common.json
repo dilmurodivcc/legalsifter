@@ -136,6 +136,7 @@
     "description": "LegalSifter yetakchi Web3 va xavfsizlik nashrlari bilan hamkorlikda. Media chiqishlarimiz tez orada paydo bo'ladi."
   },
   "faq": {
+    "tag": "FAQ",
     "title": "Ko'p so'raladigan savollar"
   },
   "perspectives": {
@@ -166,6 +167,9 @@
       "name": "OZAK AI",
       "description": "Ozak AI yangiliklarini olish uchun obuna bo'ling"
     },
+    "quickLinks": "Tezkor havolalar",
+    "aiAgents": "AI agentlar",
+    "extras": "Qo'shimcha",
     "links": {
       "presale": "Presale",
       "predictive": "Predictive AI",

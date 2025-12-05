@@ -4,8 +4,10 @@ import React, { useState } from 'react';
 import { faqData } from './data';
 import styles from './styles.module.scss';
 import {  PlusIcon } from '@/assets/icons';
+import { useTranslation } from 'react-i18next';
 
 const FAQ = () => {
+  const { t } = useTranslation();
   const [openId, setOpenId] = useState(1);
 
   const toggleQuestion = (id) => {
@@ -15,8 +17,8 @@ const FAQ = () => {
   return (
     <section className={styles.faq}>
       <div className={styles.container}>
-        <h5 className={styles.tagTitle}>FAQ's</h5>
-        <h2 className={styles.title}>{faqData.title}</h2>
+        <h5 className={styles.tagTitle}>{t('faq.tag', { defaultValue: "FAQ's" })}</h5>
+        <h2 className={styles.title}>{t('faq.title', { defaultValue: faqData.title })}</h2>
         <div className={styles.questions}>
           {faqData.questions.map((item) => (
             <div
@@ -31,13 +33,15 @@ const FAQ = () => {
                 onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && toggleQuestion(item.id)}
                 aria-expanded={openId === item.id}
               >
-                <div className={styles.question}>{item.question}</div>
+                <div className={styles.question}>
+                  {t(`faq.questions.${item.id}.question`, { defaultValue: item.question })}
+                </div>
                 <div className={`${styles.toggle} ${openId === item.id ? styles.open : ''}`}>
                   <PlusIcon className={openId === item.id ? styles.plus : styles.xmark} />
                 </div>
               </div>
               <div className={`${styles.answer} ${openId === item.id ? styles.expanded : ''}`}>
-                {item.answer}
+                {t(`faq.questions.${item.id}.answer`, { defaultValue: item.answer })}
               </div>
             </div>
           ))}

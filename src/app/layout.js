@@ -4,6 +4,10 @@ import I18nProvider from "@/providers/I18nProvider";
 export const metadata = {
   title: "LegalSifter - AI-Powered Web3 Security & Smart Contract Auditing",
   description: "Enterprise-grade contract review: compliance, security and legal certainty Powered by AI",
+  icons: {
+    icon: "/icons/favicon.png",
+    shortcut: "/icons/favicon.png",
+  },
 };
 
 export default function RootLayout({ children }) {

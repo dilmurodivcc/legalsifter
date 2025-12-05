@@ -4,7 +4,7 @@
   width: max-content;
   margin: 0 auto;
   padding: 20px 50px;
-    max-width: 1500px;
+  max-width: 1750px;
   margin: 0 auto;
 }
 
@@ -104,21 +104,22 @@
   text-align: center;
   cursor: pointer;
 
-  > * {
+  >* {
     max-width: 90%;
   }
-    .image {
-      transition: 0.3s ease;
 
-      filter: grayscale(100%);
-    
-      &:hover {
-        filter: grayscale(0%);
+  .image {
+    transition: 0.3s ease;
+
+    filter: grayscale(100%);
+
+    &:hover {
+      filter: grayscale(0%);
       transform: scale(1.04);
 
-      }
     }
-    
+  }
+
 }
 
 .noRightBorder {

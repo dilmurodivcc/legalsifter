@@ -1,23 +1,27 @@
+"use client";
+
 import React from 'react';
 import { joinCommunityData } from './data';
 import styles from './styles.module.scss';
 import { SearchIcon } from '@/assets/icons';
+import { useTranslation } from 'react-i18next';
 
 const JoinCommunity = () => {
+  const { t } = useTranslation();
   return (
     <section className={styles.joinCommunity}>
       <div className={styles.container}>
         <div className={styles.content}>
-          <h2 className={styles.title}>{joinCommunityData.title}</h2>
-          <p className={styles.subtitle}>{joinCommunityData.subtitle}</p>
+          <h2 className={styles.title}>{t('perspectives.join.title', { defaultValue: joinCommunityData.title })}</h2>
+          <p className={styles.subtitle}>{t('perspectives.join.subtitle', { defaultValue: joinCommunityData.subtitle })}</p>
           <form className={styles.form}>
             <input
               type="text"
-              placeholder={joinCommunityData.form.placeholder}
+              placeholder={t('perspectives.join.placeholder', { defaultValue: joinCommunityData.form.placeholder })}
               className={styles.input}
             />
             <button type="submit" className={styles.submitButton}>
-             {joinCommunityData.form.buttonLabel} <span className={styles.searchIcon}><SearchIcon/></span>
+             {t('perspectives.join.button', { defaultValue: joinCommunityData.form.buttonLabel })} <span className={styles.searchIcon}><SearchIcon/></span>
             </button>
           </form>
           <div className={styles.socialLinks}>

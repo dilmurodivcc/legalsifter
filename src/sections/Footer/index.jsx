@@ -4,8 +4,10 @@ import React from 'react';
 import { footerData } from './data';
 import styles from './styles.module.scss';
 import { ArrowRight, BackToTop } from '@/assets/icons';
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
+  const { t } = useTranslation();
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -16,7 +18,9 @@ const Footer = () => {
         <div className={styles.mainFooter}>
           <div className={styles.brand}>
           <img className={styles.logo} src="/icons/OzakAiLogo.svg" alt="" width="140px"/>
-            <p className={styles.brandDescription}>{footerData.brand.description}</p>
+            <p className={styles.brandDescription}>
+              {t('footer.brand.description', { defaultValue: footerData.brand.description })}
+            </p>
             <div className={styles.newsletter}>
               <input
                 type="email"
@@ -34,26 +38,26 @@ const Footer = () => {
             </div>
           </div>
           <div className={styles.column}>
-            <div className={styles.columnTitle}>Quick Links</div>
+            <div className={styles.columnTitle}>{t('footer.quickLinks', { defaultValue: 'Quick Links' })}</div>
             {footerData.quickLinks.map((link, index) => (
               <a key={index} href={link.href} className={styles.columnLink}>
-                {link.label}
+                {t(`footer.links.${link.key}`, { defaultValue: link.label })}
               </a>
             ))}
           </div>
           <div className={styles.column}>
-            <div className={styles.columnTitle}>AI Agents</div>
+            <div className={styles.columnTitle}>{t('footer.aiAgents', { defaultValue: 'AI Agents' })}</div>
             {footerData.aiAgents.map((link, index) => (
               <a key={index} href={link.href} className={styles.columnLink}>
-                {link.label}
+                {t(`footer.links.${link.key}`, { defaultValue: link.label })}
               </a>
             ))}
           </div>
           <div className={styles.column}>
-            <div className={styles.columnTitle}>Extras</div>
+            <div className={styles.columnTitle}>{t('footer.extras', { defaultValue: 'Extras' })}</div>
             {footerData.extras.map((link, index) => (
               <a key={index} href={link.href} className={styles.columnLink}>
-                {link.label}
+                {t(`footer.links.${link.key}`, { defaultValue: link.label })}
               </a>
             ))}
           </div>
@@ -63,7 +67,7 @@ const Footer = () => {
           <div className={styles.legalLinks}>
             {footerData.legal.map((link, index) => (
               <a key={index} href={link.href} className={styles.legalLink}>
-                {link.label}
+                {t(`footer.links.${link.key}`, { defaultValue: link.label })}
               </a>
             ))}
           </div>

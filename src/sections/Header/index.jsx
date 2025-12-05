@@ -43,45 +43,45 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <div className={styles.container}>
-      <div className={styles.logo}>{t('header.logo', { defaultValue: headerData.logo.text })}</div>
-      <nav className={styles.nav}>
-        {headerData.navItems.map((item, index) => (
-          <a key={index} href={item.href} className={styles.navItem}>
-            {t(`header.nav.${item.key}`, { defaultValue: item.label })}
-            {item.hasDropdown && <ArrowDownIcon />}
-          </a>
-        ))}
-      </nav>
-      <div className={styles.actions}>
-        <div 
-          className={styles.languageSelect} 
-          ref={languageDropdownRef}
-        >
-          <button 
-            className={`${styles.languageButton} ${isLanguageOpen ? styles.open : ''}`}
-            onClick={() => setIsLanguageOpen(!isLanguageOpen)}
+        <img src="/icons/OzakAiLogo.svg" alt="" width="140px" />
+        <nav className={styles.nav}>
+          {headerData.navItems.map((item, index) => (
+            <a key={index} href={item.href} className={styles.navItem}>
+              {t(`header.nav.${item.key}`, { defaultValue: item.label })}
+              {item.hasDropdown && <ArrowDownIcon />}
+            </a>
+          ))}
+        </nav>
+        <div className={styles.actions}>
+          <div
+            className={styles.languageSelect}
+            ref={languageDropdownRef}
           >
-            <LanguageIcon />
-            <span>{t(`header.language.${currentLanguage}`, { defaultValue: currentLanguage.toUpperCase() })}</span>
-            <ArrowDownIcon />
-          </button>
-          {isLanguageOpen && (
-            <div className={styles.languageDropdown}>
-              {headerData.language.options.map((lang) => (
-                <button
-                  key={lang}
-                  className={`${styles.languageOption} ${currentLanguage === lang ? styles.active : ''}`}
-                  onClick={() => handleLanguageSelect(lang)}
-                >
-                  {t(`header.language.${lang}`, { defaultValue: lang.toUpperCase() })}
-                </button>
-              ))}
-            </div>
-          )}
-        </div>
-        {headerData.buttons.map((btn, index) => (
-          <button key={index} className={styles[btn.variant]}>
-            {t(`header.buttons.${btn.key}`, { defaultValue: btn.label })}
+            <button
+              className={`${styles.languageButton} ${isLanguageOpen ? styles.open : ''}`}
+              onClick={() => setIsLanguageOpen(!isLanguageOpen)}
+            >
+              <LanguageIcon />
+              <span>{t(`header.language.${currentLanguage}`, { defaultValue: currentLanguage.toUpperCase() })}</span>
+              <ArrowDownIcon />
+            </button>
+            {isLanguageOpen && (
+              <div className={styles.languageDropdown}>
+                {headerData.language.options.map((lang) => (
+                  <button
+                    key={lang}
+                    className={`${styles.languageOption} ${currentLanguage === lang ? styles.active : ''}`}
+                    onClick={() => handleLanguageSelect(lang)}
+                  >
+                    {t(`header.language.${lang}`, { defaultValue: lang.toUpperCase() })}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+          {headerData.buttons.map((btn, index) => (
+            <button key={index} className={styles[btn.variant]}>
+              {t(`header.buttons.${btn.key}`, { defaultValue: btn.label })}
             </button>
           ))}
         </div>

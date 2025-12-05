@@ -136,6 +136,7 @@
     "description": "LegalSifter is currently partnering with leading Web3 and security publications. Our media coverage will appear here soon, stay tuned."
   },
   "faq": {
+    "tag": "FAQ's",
     "title": "FAQ's Your Questions, Answered"
   },
   "perspectives": {
@@ -166,6 +167,9 @@
       "name": "OZAK AI",
       "description": "Subscribe to our newsletter to get the latest updates on everything Ozak AI"
     },
+    "quickLinks": "Quick Links",
+    "aiAgents": "AI Agents",
+    "extras": "Extras",
     "links": {
       "presale": "Presale",
       "predictive": "Predictive AI",

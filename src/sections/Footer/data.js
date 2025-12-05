@@ -7,24 +7,24 @@ export const footerData = {
     description: "Subscribe to our newsletter to get the latest updates on everything Ozak AI"
   },
   quickLinks: [
-    { label: "Presale", href: "#presale" },
-    { label: "Predictive AI", href: "#predictive-ai" },
-    { label: "Buy $OZ", href: "#buy-oz" },
-    { label: "Whitepaper", href: "#whitepaper" },
-    { label: "Tokenomics", href: "#tokenomics" },
-    { label: "Roadmap", href: "#roadmap" }
+    { key: "presale", label: "Presale", href: "#presale" },
+    { key: "predictive", label: "Predictive AI", href: "#predictive-ai" },
+    { key: "buy", label: "Buy $OZ", href: "#buy-oz" },
+    { key: "whitepaper", label: "Whitepaper", href: "#whitepaper" },
+    { key: "tokenomics", label: "Tokenomics", href: "#tokenomics" },
+    { key: "roadmap", label: "Roadmap", href: "#roadmap" }
   ],
   aiAgents: [
-    { label: "For Individuals", href: "#individuals" },
-    { label: "For Business", href: "#business" },
-    { label: "DePIN", href: "#depin" },
-    { label: "Join Waitlist", href: "#waitlist" }
+    { key: "individuals", label: "For Individuals", href: "#individuals" },
+    { key: "business", label: "For Business", href: "#business" },
+    { key: "depin", label: "DePIN", href: "#depin" },
+    { key: "waitlist", label: "Join Waitlist", href: "#waitlist" }
   ],
   extras: [
-    { label: "Media Kit", href: "#media-kit" },
-    { label: "Blogs", href: "#blogs" },
-    { label: "Documentation", href: "#docs" },
-    { label: "Support", href: "#support" }
+    { key: "media", label: "Media Kit", href: "#media-kit" },
+    { key: "blogs", label: "Blogs", href: "#blogs" },
+    { key: "docs", label: "Documentation", href: "#docs" },
+    { key: "support", label: "Support", href: "#support" }
   ],
   socialLinks: [
     { name: "Twitter", icon: X, href: "#twitter" },
@@ -36,8 +36,8 @@ export const footerData = {
     { name: "LinkTree", icon: linkTree, href: "#star" }
   ],
   legal: [
-    { label: "Terms", href: "#terms" },
-    { label: "Disclaimers", href: "#disclaimers" },
-    { label: "Privacy", href: "#privacy" }
+    { key: "terms", label: "Terms", href: "#terms" },
+    { key: "disclaimers", label: "Disclaimers", href: "#disclaimers" },
+    { key: "privacy", label: "Privacy", href: "#privacy" }
   ]
 };
