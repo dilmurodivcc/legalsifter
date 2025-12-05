@@ -1,0 +1,126 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 77px 0 ;
+  background: url('/images/hero-background.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+  max-width: 1500px;
+  margin: 0 auto;
+  margin-top: 87px;
+
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.backgroundPattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.3;
+  background: radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.3) 0%, transparent 50%);
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.badgeContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-bottom: 20px;
+
+  
+  .badge {
+    backdrop-filter: blur(40px);
+    box-shadow: 6px 6px 6px 0 rgba(0, 0, 0, 0.3), inset -2px -5px 20px 0 #90adff;
+    background: rgba(9, 15, 34, 0.8);
+    padding: 7px 28px;
+    border-radius: 42px;
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: -0.02em;
+    color: #fff;
+    gap: 5px;
+  }
+}
+
+.title {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 65px;
+  line-height: 114%;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+
+.subtitle {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 127%;
+  letter-spacing: -0.02em;
+  text-align: center;
+  color: #afafaf;
+  margin-bottom: 35px;
+}
+
+.videoContainer {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  border: 1px solid #999a99;
+  border-radius: 40px;
+    overflow: hidden;
+  background: rgba(0, 0, 0, 0.3);
+  aspect-ratio: 16/8;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #131a2d;
+  .playIcon {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+
+
+.ctaButton {
+  backdrop-filter: blur(40px);
+  box-shadow: 6px 6px 6px 0 rgba(0, 0, 0, 0.3), inset -4px -10px 30px 0 rgba(144, 173, 255, 0.8);
+  background: rgba(255, 255, 255, 0.8);
+  font-weight: 590;
+font-size: 30px;
+line-height: 57%;
+letter-spacing: 0em;
+color: #000;
+height: 48px;
+padding: 0 20px;
+border-radius: 50px;
+margin-top: 45px;
+display: grid;
+place-items: center;
+}
